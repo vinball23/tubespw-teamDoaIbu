@@ -14,5 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'active' => 'welcome'
+    ]);
+});
+
+Route::get('/home', function () {
+    return view('home', [
+        'active' => 'home'
+    ]);
+});
+
+Route::get('/about', function () {
+    return view('about', [
+        'active' => 'about'
+    ]);
+});
+
+Route::get('/categories', function () {
+    return view('categories', [
+        'active' => 'categories'
+    ]);
 });

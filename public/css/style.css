@@ -1,0 +1,36 @@
+.bg-semitrans {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.nav-item {
+    padding: 5px 20px;
+    /* border-bottom-left-radius: 15px; */
+}
+
+.nav-item:hover {
+    padding: 5px 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 25px;
+}
+
+.nav-link {
+    font-size: 1.7vh;
+    color: white !important;
+    font-weight: bold;
+}
+
+.nav-item .nav-link:hover {
+    font-size: 1.7vh;
+}
+
+.hero-img {
+    background: url(/img/hero-img.jpg);
+    min-height: 100vh;
+    background-size: cover;
+}
+
+.desc {
+    color: whitesmoke;
+    font-size: 2vh;
+    line-height: 35px;
+}
