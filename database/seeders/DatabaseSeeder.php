@@ -32,18 +32,18 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Category::create([
-            'name' => 'Web Programming',
-            'slug' => 'web-programming'
+            'name' => 'Appetizer',
+            'slug' => 'appetizer'
         ]);
 
         Category::create([
-            'name' => 'Web Design',
-            'slug' => 'web-design'
+            'name' => 'Main Course',
+            'slug' => 'main-course'
         ]);
 
         Category::create([
-            'name' => 'Personal',
-            'slug' => 'personal'
+            'name' => 'Dessert',
+            'slug' => 'dessert'
         ]);
 
         Post::factory(20)->create();
