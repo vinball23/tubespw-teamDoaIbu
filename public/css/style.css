@@ -5,6 +5,7 @@
 .nav-item {
     padding: 5px 20px;
     /* border-bottom-left-radius: 15px; */
+    transition-duration: 0.5s;
 }
 
 .nav-item:hover {
@@ -15,8 +16,9 @@
 
 .nav-link {
     font-size: 1.7vh;
-    color: white !important;
+    color: black !important;
     font-weight: bold;
+
 }
 
 .nav-item .nav-link:hover {
