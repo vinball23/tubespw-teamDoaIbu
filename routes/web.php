@@ -28,6 +28,14 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/country', function () {
+    return view('country' , [
+        "title" => "Country",
+        "active" =>"country",
+    ]);
+});
+
+
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
