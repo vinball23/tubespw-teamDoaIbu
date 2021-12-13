@@ -28,14 +28,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/country', function () {
-    return view('country' , [
-        "title" => "Country",
-        "active" =>"country",
-    ]);
-});
-
-
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
@@ -43,9 +35,16 @@ Route::get('/about', function () {
     ]);
 });
 
+Route::get('/country', function () {
+    return view('country' , [
+        "title" => "Country",
+        "active" =>"country",
+    ]);
+});
 
 Route::get('posts', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
+
 
 Route::get('/categories', function() {
     return view('categories', [
