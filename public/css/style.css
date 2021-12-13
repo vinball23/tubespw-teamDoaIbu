@@ -4,25 +4,17 @@
 
 .nav-item {
     padding: 5px 20px;
-    /* border-bottom-left-radius: 15px; */
-    transition-duration: 0.5s;
+    border-radius: 25px;
 }
 
 .nav-item:hover {
-    padding: 5px 20px;
+    transition-duration: 0.7s;
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 25px;
 }
 
 .nav-link {
     font-size: 1.7vh;
-    color: black !important;
     font-weight: bold;
-
-}
-
-.nav-item .nav-link:hover {
-    font-size: 1.7vh;
 }
 
 .hero-img {

@@ -1,7 +1,9 @@
 @extends('layouts.main')
 
 @section('container')
+
     <h1 class="mb-3 text-center">{{ $title }}</h1>
+    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aspernatur!</p>
 
     <div class="row justify-content-center mb-3">
       <div class="col-md-6">
@@ -14,7 +16,7 @@
           @endif
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}">
-            <button class="btn btn-danger" type="submit">Search</button>
+            <button class="btn btn-success" type="submit">Search</button>
           </div>          
         </form>
       </div>
