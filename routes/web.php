@@ -54,19 +54,18 @@ Route::get('/categories', function() {
     ]);
 });
 
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest'); 
-Route::post('/login', [LoginController::class, 'authenticate']); 
-Route::post('/logout', [LoginController::class, 'logout']); 
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest'); 
-Route::post('/register', [RegisterController::class, 'store']); 
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', function() {
     return view('dashboard.index');
-})->middleware('auth');     
+})->middleware('auth');
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show');
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');

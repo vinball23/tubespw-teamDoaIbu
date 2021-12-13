@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark {{ ($active === "welcome") ? 'fixed-top' : 'bg-semitrans' }}">
+<nav class="navbar navbar-expand-lg  {{ Request::is('/') ? 'navbar-dark fixed-top' : 'navbar-light bg-light sticky-top' }}">
   <div class="container">
     <a class="navbar-brand fw-bold" href="/">Ini Judul</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -8,10 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link {{ ($active === "home") ? 'active' : '' }}" href="/posts">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ ($active === "about") ? 'active' : '' }}" href="/about">About</a>
+          <a class="nav-link {{ Request::is('posts*') ? 'active' : '' }}" href="/posts">Home</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -29,6 +26,9 @@
         <li class="nav-item">
           <a class="nav-link {{ ($active === "categories") ? 'active' : '' }}" href="/categories">Categories</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ ($active === "about") ? 'active' : '' }}" href="/about">About</a>
+        </li>
       </ul>
 
       <ul class="navbar-nav">
@@ -36,12 +36,12 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Welcome back,
+            Welcome back, {{ auth()->user()->name }}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i>
-                MyDashboard</a>
+              <a class="dropdown-item" href="/dashboard"><i class="bi bi-house-fill"></i>
+                Dashboard</a>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -56,7 +56,7 @@
         </li>
         @else
         <li class="nav-item">
-          <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          <a class="nav-link {{ ($active === "login") ? 'active' : '' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
         </li>
         @endauth
       </ul>
