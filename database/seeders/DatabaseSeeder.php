@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Dessert',
             'slug' => 'dessert'
         ]);
+        
 
         Post::factory(20)->create();
 
