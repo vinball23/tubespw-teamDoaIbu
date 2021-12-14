@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Country;
 use App\Models\Post;
 
 class DatabaseSeeder extends Seeder
@@ -34,6 +35,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Post::factory(20)->create();
+
+        // Country::factory([
+        //     'name'
+
+        // ])
 
     }
 }

@@ -53,7 +53,7 @@
         @foreach ($posts->skip(1) as $post)
         <div class="col-md-4 mb-3">
           <div class="card">
-            <div class="position-absolute px-2 py-1 text-white" style="background-color: rgba(0, 0, 0, 0.7)"><a href="/posts?category={{ $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
+            <div class="position-absolute px-2 py-1 text-white" style="background-color: rgba(0, 0, 0, 0.4)"><a href="/posts?category={{ $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
             @if ($post->image)
               <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid">
             @else 

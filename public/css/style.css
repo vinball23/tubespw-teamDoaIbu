@@ -28,3 +28,18 @@
     font-size: 2vh;
     line-height: 35px;
 }
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-bottom: 25px;
+}
+
+.footer {
+    background-color: blanchedalmond;
+    position: relative;
+    margin-top: 10%;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: black;
+}
