@@ -41,5 +41,7 @@ body {
     bottom: 0;
     width: 100%;
     text-align: center;
+}
+.author{
     color: black;
 }
