@@ -1,52 +1,42 @@
 @extends('layouts.main')
 
 @section('container')
-    <h3 class="">Indonesian food</h3>
-    <img src="img/indonesia.jpeg" alt="" width="250" height = "250" class="ig-thubnail rounded">
-    <p> Nasi goreng adalah sebuah makanan berupa nasi yang digoreng 
-        dan diaduk dalam minyak goreng, margarin, atau mentega. 
-        Biasanya ditambah kecap manis, bawang merah, bawang putih, asam jawa, lada dan bumbu-bumbu lainnya; 
-        seperti telur, ayam, dan kerupuk.
-        Daerah asal: Indonesia</p> 
+    <h1>{{ $title }}</h1>
+    @if ($posts->count())
+        <div class="row">
+            @foreach ($posts as $post)
+                <div class="col-md-3 mb-3 mt-2">
+                    <div class="card h-100">
+                        <div class="position-absolute px-2 py-1 text-white" style="background-color: rgba(0, 0, 0, 0.4)">
+                            <a href="/posts?category={{ $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
+                        @if ($post->image)
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $country->category->name }}" class="img-fluid">
+                        @else 
+                        <img src="https://source.unsplash.com/500x400?{{ $country->category->name }}" class="card-img-top" alt="{{ $country->category->name }}">
+                        @endif
+                        <div class="card-body">
+                        <small class="text-muted mt-5">
+                            By. <a href="/posts?author={{ $country->author->username }}" class="text-decoration-none">{{ $country->author->name }}</a>
+                        </small>
+                        <br>
+                        <small class="text-muted">
+                            Country: <a href="/posts?country={{ $country->country->slug }}" class="text-decoration-none">{{ $country->country->name }}</a>
+                        </small>
+                        <h5 class="card-title">{{ $country->title }}</h5>
+                        <a href="/posts/{{ $country->slug }}" class="btn btn-success w-100">
+                            <i class="bi bi-book"></i>
+                            Recipes
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @else
+        <p class="text-center fs-4">No country Found</p>
+    @endif
 
-    <h3 class="">Jepang food</h3>
-    <img src="img/jepang.jpeg" alt="" width="250" height = "250" class="ig-thubnail rounded">
-  <p>Sushi Mungkin Merupakan Masakan Jepang yang Paling Dikenal 
-      dan Membeludak Popularitasnya di Seluruh Dunia. 
-      Sushi mengacu pada nasi yang agak manis dan diberi cuka, 
-      kadang disebut shari, dan diberi hiasan makanan di atasnya—atau neta—dari makanan laut, telur, 
-      atau sayuran baik mentah maupun matang.</p>
-   
-      <h3 class="">Italia food</h3>
-    <img src="img/Italia.jpeg" alt="" width="250" height = "250" class="ig-thubnail rounded">
-    <p>Piza adalah hidangan gurih dari Italia sejenis adonan bundar dan pipih, 
-        yang dipanggang di oven dan biasanya dilumuri saus tomat serta keju dengan bahan makanan 
-        tambahan lainnya yang bisa dipilih. Keju yang dipakai biasanya mozzarella atau "keju pizza", 
-        bisa juga keju parmesan dan beberapa keju lainnya.</P>
-
-    <h3 class="">India food</h3>
-    <img src="img/India.jpeg" alt="" width="250" height = "250" class="ig-thubnail rounded">
-    <p>India memang selalu identik dengan kari karena di negara ini punya jenis kari yang berbeda-beda. 
-        Salah satu yang paling terkenal adalah rogan josh, biasanya kari yang satu ini disajikan 
-        dengan potongan daging kambing tapi ada juga yang memakai ayam ataupun sapi.
-        Roti canai adalah sejenis roti pipih dengan pengaruh India yang dapat 
-        ditemukan di beberapa negara di Asia Tenggara, antara lain Brunei, Indonesia, 
-        Malaysia dan Singapura. Roti ini bisa ditemukan di gerai mamak 
-        di Indonesia atau di rumah makan Aceh dan Sumatra Barat di Indonesia.</P>
-
-    <h3 class="">Turki food</h3>
-    <img src="img/turki.jpeg" alt="" width="250" height = "250" class="ig-thubnail rounded">
-    <p>Kebab merupakan salah satu makanan yang khas dari Timur Tengah, terdiri dari tortila 
-        khas Meksiko yang berisi daging, sayuran, dan saus. Makanan yang berasal dari TurkKebab berasal dari Turki, 
-        dalam bahasa Arab lebih dikenal sebagai kabbeh. Konon, kebab mulai hadir di abad ke-18. 
-        Waktu itu pedagang Turki banyak yang berhubungan dengan pedagang di Berlin, Jerman, 
-        sehingga sempat terjadi perubahan pada kebab, karena menyesuaikan dengan selera orang Jerman.</p>
-
-    <h3 class="">Korea food</h3>
-    <img src="img/korea.jpeg" alt="" width="250" height = "250" class="ig-thubnail rounded">
-    <p>Bibimbap merupakan makanan Korea yang dikenal sebagai nasi campur. 
-        Makanan ini tergolong menu sehat dan bernutrisi, 
-        karena terdapat banyak jenis sayuran seperti wortel, timun, lobak, dan lainnya. 
-        Selain itu, dalam seporsi bibimbap juga terdapat telur ceplok dan daging sapi yang membuat kandungan gizinya semakin lengkap. 
-        Makanan ini cocok disantap pagi, siang, atau malam hari.</p>
+    <div class="d-flex justify-content-center">
+        {{ $countries->links() }}
+    </div>
 @endsection

@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\CountryController;
 use App\Models\Category;
 
 use Illuminate\Support\Facades\Route;
@@ -9,6 +10,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
+use App\Models\Country;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,20 +37,15 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/country', function () {
-    return view('country' , [
-        "title" => "Country",
-        "active" =>"country",
-    ]);
-});
+Route::get('/countries', [CountryController::class, 'index']);
 
-Route::get('posts', [PostController::class, 'index']);
-Route::get('posts/{post:slug}', [PostController::class, 'show']);
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
 
 Route::get('/categories', function() {
     return view('categories', [
-        'title' => 'Post Categories',
+        'title' => 'Categories',
         'active' => 'categories',
         'categories' => Category::all()
     ]);

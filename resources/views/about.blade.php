@@ -1,18 +1,27 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="about-text" style="width: 700px">
-        <h1>
-            Hi, Welcome to ... 
-        </h1>
-        <p>
-            Hallo , apa kabar hari ini ? Semoga selalu sehat dalam perlindungan-Nya.
-                
-            Website ... ini kami buat bertujuan untuk memberikan referensi resep masakan mulai dari nusantara sampai manca negara.
-        </p>
-        <p>
-            Harapan kami, dengan adanya website ini bisa membantu anda mencari lokasi wisata yang ingin anda kunjungi bersama keluarga atau orang-orang tercinta.
-        </p>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="fw-bold text-center mb-5">About Us</h1>
+        </div>
+    </div>
+    <div class="row">
+        <h1>Hi, Welcome to FoodStation!</h1>
+        <div class="col-md-12">
+            <div class="about-text">
+                <p class="fs-4">
+                    FoodStation is a website that contains collection of recipes from various parts of the world. We created this website with the intention of bringing fresh and flavorful recipes right to your palm. <br>a food station that provides information for those of you who like to cook and connoisseurs of cuisine. This site contains a collection of recipes from Indonesia and various other countries.
+                </p>
+            </div>
+        </div>
     </div>
 
+    <div class="row text-center">
+        <h1 class="fw-bold">Our Team</h1>
+        <div class="col-md-12">
+
+        </div>
+    </div>
+            
 @endsection

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Team DI</title>
+    <title>FoodStation</title>
   </head>
   <body>
     
