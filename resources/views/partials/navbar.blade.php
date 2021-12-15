@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg  {{ Request::is('/') ? 'navbar-dark fixed-top' : 'navbar-light bg-light sticky-top' }}">
+<nav class="navbar navbar-expand-lg {{ Request::is('/') ? 'navbar-light fixed-top' : 'navbar-light bg-light sticky-top' }}">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="/">Ini Judul</a>
+    <a class="navbar-brand fw-bold fs-4" href="/">FoodStation</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,20 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('posts*') ? 'active' : '' }}" href="/posts">Home</a>
+          <a class="nav-link {{ ($active === "home") ? 'active' : '' }}" href="/posts">Home</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Country
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/country">Indonesia <img src="img/ina.png" alt="" width="20" height = "15" class="ig-thubnail rounded"></a></li>
-            <li><a class="dropdown-item" href="/country">Jepang <img src="img/jpn.png" alt="" width="20" height = "15" class="ig-thubnail rounded"></a></li>
-            <li><a class="dropdown-item" href="/country">Italia <img src="img/ita.png" alt="" width="20" height = "15" class="ig-thubnail rounded"></a></li>
-            <li><a class="dropdown-item" href="/country">India <img src="img/ind.png" alt="" width="20" height = "15" class="ig-thubnail rounded"></a></li>
-            <li><a class="dropdown-item" href="/country">Turki <img src="img/trk.png" alt="" width="20" height = "15" class="ig-thubnail rounded"></a></li>
-            <li><a class="dropdown-item" href="/country">Korea <img src="img/kor.png" alt="" width="20" height = "15" class="ig-thubnail rounded"></a></li>
-          </ul>
+        <li class="nav-item">
+          <a class="nav-link {{ ($active === "countries") ? 'active' : '' }}" href="/countries">Countries</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ ($active === "categories") ? 'active' : '' }}" href="/categories">Categories</a>
@@ -36,7 +26,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Welcome back, {{ auth()->user()->name }}
+            Hello, {{ auth()->user()->name }}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>

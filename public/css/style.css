@@ -1,9 +1,20 @@
-.bg-semitrans {
-    background-color: rgba(0, 0, 0, 0.4);
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap");
+
+body {
+    font-family: "Jost", sans-serif;
+    /* font-size: 1.5vh; */
+}
+
+.main {
+    min-height: 84.1vh;
+}
+
+.nav-text {
+    color: #064635 !important;
 }
 
 .nav-item {
-    padding: 5px 20px;
+    padding: 5px 15px;
     border-radius: 25px;
 }
 
@@ -13,35 +24,31 @@
 }
 
 .nav-link {
-    font-size: 1.7vh;
+    /* font-size: 1.7vh; */
     font-weight: bold;
 }
 
 .hero-img {
     background: url(/img/hero-img.jpg);
+    /* opacity: 0.5; */
     min-height: 100vh;
     background-size: cover;
 }
 
+.hero-text {
+    margin-top: -250px;
+}
+
 .desc {
-    color: whitesmoke;
+    color: #212121;
     font-size: 2vh;
     line-height: 35px;
 }
 
-body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding-bottom: 25px;
+.card:hover {
+    box-shadow: 5px 5px 11px 3px rgba(0, 0, 0, 0.46) !important;
 }
 
 .footer {
-    background-color: blanchedalmond;
-    position: relative;
-    margin-top: 10%;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
-.author{
-    color: black;
+    background-color: #064635;
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Country;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
@@ -32,7 +33,8 @@ class DashboardPostController extends Controller
     public function create()
     {
         return view('dashboard.posts.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'countries' => Country::all()
         ]);
     }
 
@@ -48,6 +50,7 @@ class DashboardPostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required | max:255',
             'slug' => 'required | unique:posts',
+            'country_id' => 'required',
             'category_id' => 'required',
             'image' => 'image|file|max:1024',
             'body' => 'required'
