@@ -34,6 +34,31 @@ class DatabaseSeeder extends Seeder
             'slug' => 'dessert'
         ]);
         
+        Country::create([
+            'name' => 'India',
+            'slug' => 'in'
+        ]);
+        Country::create([
+            'name' => 'Indonesia',
+            'slug' => 'id'
+        ]);
+        Country::create([
+            'name' => 'Italy',
+            'slug' => 'it'
+        ]);
+        Country::create([
+            'name' => 'Japan',
+            'slug' => 'jp'
+        ]);
+        Country::create([
+            'name' => 'Korea',
+            'slug' => 'kr'
+        ]);
+        Country::create([
+            'name' => 'Turkey',
+            'slug' => 'tr'
+        ]);
+
         Post::factory(20)->create();
     }
 }

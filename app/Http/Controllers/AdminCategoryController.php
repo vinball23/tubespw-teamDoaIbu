@@ -43,7 +43,7 @@ class AdminCategoryController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required | max:255',
-            'slug' => 'required | unique:posts'
+            'slug' => 'required | unique:categories'
         ]);
 
         Category::create($validatedData);
@@ -88,15 +88,18 @@ class AdminCategoryController extends Controller
     {
         $rules = [
             'name' => 'required|max:255',
-            'slug' => 'required',
         ];
 
-        $validatedData = $request->validate($rules);
+        if ($request->slug != $category->slug) {
+            $rules['slug'] = 'required|unique:categories';
+        }
 
-        Post::where('id', $category->id)
+        $validatedData = $request->validate($rules);
+        
+        Category::where('id', $category->id)
             ->update($validatedData);
 
-        return redirect('/dashboard/categories')->with('success', 'Post has been Updated');
+            return redirect('/dashboard/categories')->with('success', 'Category has been Updated');
     }
 
     /**
