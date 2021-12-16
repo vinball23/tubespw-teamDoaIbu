@@ -2,6 +2,8 @@
 
 body {
     font-family: "Jost", sans-serif;
+    background-color: #fffffc;
+    color: #14213d;
     /* font-size: 1.5vh; */
 }
 
@@ -20,7 +22,7 @@ body {
 
 .nav-item:hover {
     transition-duration: 0.7s;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .nav-link {
@@ -30,7 +32,6 @@ body {
 
 .hero-img {
     background: url(/img/hero-img.jpg);
-    /* opacity: 0.5; */
     min-height: 100vh;
     background-size: cover;
 }
@@ -46,9 +47,11 @@ body {
 }
 
 .card:hover {
-    box-shadow: 5px 5px 11px 3px rgba(0, 0, 0, 0.46) !important;
+    transform: scale(1.1);
+    transition-duration: 0.5s;
 }
 
 .footer {
-    background-color: #064635;
+    background-color: #2d6a4f;
 }
+
