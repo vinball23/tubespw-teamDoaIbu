@@ -34,13 +34,6 @@ class DatabaseSeeder extends Seeder
             'slug' => 'dessert'
         ]);
         
-
         Post::factory(20)->create();
-
-        // Country::factory([
-        //     'name'
-
-        // ])
-
     }
 }

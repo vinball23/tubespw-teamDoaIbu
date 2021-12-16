@@ -32,7 +32,12 @@ class Post extends Model
         $query->when($filters['author'] ?? false, fn($query, $author) =>  
             $query->whereHas('author', fn($query) =>
                 $query->where('username', $author))
-    );
+        );
+
+        $query->when($filters['country'] ?? false, fn($query, $country) =>  
+            $query->whereHas('country', fn($query) =>
+                $query->where('slug', $country))
+        );
     }
 
 
@@ -42,6 +47,10 @@ class Post extends Model
 
     public function author() {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function country() {
+        return $this->belongsTo(Country::class);
     }
 
     public function getRouteKeyName()
