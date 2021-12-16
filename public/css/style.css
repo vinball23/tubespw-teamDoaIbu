@@ -7,12 +7,16 @@ body {
     /* font-size: 1.5vh; */
 }
 
+.navbar-jidat {
+    background-color: #c2c5aa;
+}
+
 .main {
     min-height: 84.1vh;
 }
 
 .nav-text {
-    color: #064635 !important;
+    color: #14213d !important;
 }
 
 .nav-item {
@@ -42,7 +46,6 @@ body {
 
 .desc {
     color: #212121;
-    font-size: 2vh;
     line-height: 35px;
 }
 
@@ -52,6 +55,5 @@ body {
 }
 
 .footer {
-    background-color: #2d6a4f;
+    background-color: #656d4a;
 }
-

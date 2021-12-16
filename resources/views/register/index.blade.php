@@ -44,7 +44,7 @@
           @enderror
         </div>
     
-        <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Sign Up</button>
+        <button class="w-100 btn btn-lg btn-success mt-3" type="submit">Sign Up</button>
       </form>
       <small class="d-block text-center mt-3">Already have an account? <a href="/login">Sign In</a></small>
     </main>

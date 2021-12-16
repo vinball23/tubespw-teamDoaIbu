@@ -11,12 +11,5 @@
             </div>
         </div>
     </div>
-
-    <div class="row text-center">
-        <h1 class="fw-bold">Our Team</h1>
-        <div class="col-md-12">
-
-        </div>
-    </div>
             
 @endsection
