@@ -18,6 +18,7 @@
       <tr>
         <th scope="col">No.</th>
         <th scope="col">Title</th>
+        <th scope="col">Country</th>
         <th scope="col">Category</th>
         <th scope="col">Action</th>
       </tr>
@@ -27,6 +28,7 @@
       <tr>
         <td>{{ $loop->iteration }}</td>
         <td>{{ $post->title }}</td>
+        <td>{{ $post->country->name }}</td>
         <td>{{ $post->category->name }}</td>
         <td>
           <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>

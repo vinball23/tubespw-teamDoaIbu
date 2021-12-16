@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Post;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class AdminCategoryController extends Controller
@@ -43,7 +41,7 @@ class AdminCategoryController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required | max:255',
-            'slug' => 'required | unique:posts'
+            'slug' => 'required | unique:categories'
         ]);
 
         Category::create($validatedData);
@@ -88,15 +86,18 @@ class AdminCategoryController extends Controller
     {
         $rules = [
             'name' => 'required|max:255',
-            'slug' => 'required',
         ];
+
+        if ($request->slug != $category->slug) {
+            $rules['slug'] = 'required|unique:categories';
+        }
 
         $validatedData = $request->validate($rules);
 
-        Post::where('id', $category->id)
+        Category::where('id', $category->id)
             ->update($validatedData);
 
-        return redirect('/dashboard/categories')->with('success', 'Post has been Updated');
+        return redirect('/dashboard/categories')->with('success', 'Category has been Updated');
     }
 
     /**
