@@ -2,11 +2,11 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">   
-  <h1 class="h2">Create New Post Categories</h1>
+  <h1 class="h2">Create New Countries</h1>
 </div>
 
 <div class="col-lg-8">
-    <form method="post" action="/dashboard/categories" class="mb-5" enctype="multipart/form-data" >
+    <form method="post" action="/dashboard/countries" class="mb-5" enctype="multipart/form-data" >
       @csrf
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
@@ -28,7 +28,7 @@
             @enderror
         </div>
 
-      <button type="submit" class="btn btn-primary">Create Category</button>
+      <button type="submit" class="btn btn-primary">Create Country</button>
     </form>
 </div>
 
@@ -37,7 +37,7 @@
   const slug = document.querySelector('#slug');
 
   name.addEventListener('change', function() {
-    fetch('/dashboard/categories/checkSlug?name=' + name.value)
+    fetch('/dashboard/countries/checkSlug?name=' + name.value)
       .then(response => response.json())
       .then(data => slug.value = data.slug)
   });

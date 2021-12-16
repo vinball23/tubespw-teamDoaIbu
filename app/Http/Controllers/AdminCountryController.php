@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Country;
 use App\Models\Post;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 
-class AdminCategoryController extends Controller
+class AdminCountryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,11 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        return view('dashboard.categories.index', [
-            'categories' => Category::all()
+        return view('dashboard.countries.index', [
+            'countries' => Country::all()
         ]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,8 +28,8 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        return view('dashboard.categories.create', [
-            'categories' => Category::all()
+        return view('dashboard.countries.create', [
+            'categories' => Country::all()
         ]);
     }
 
@@ -42,39 +43,39 @@ class AdminCategoryController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required | max:255',
-            'slug' => 'required | unique:posts'
+            'slug' => 'required | unique:countries'
         ]);
 
-        Category::create($validatedData);
+        Country::create($validatedData);
 
-        return redirect('/dashboard/categories')->with('success', 'New category has been added!');
+        return redirect('/dashboard/countries')->with('success', 'New country has been added!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\category  $category
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Country $country)
     {
-        return view('post', [
+        return view('country', [
             "title" => "Single Post",
             "active" => 'home',
-            "post" => $post
+            "country" => $country
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\category  $category
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Country $country)
     {
-        return view('dashboard.categories.edit', [
-            'category' => $category
+        return view('dashboard.countries.edit', [
+            'country' => $country
         ]);
     }
 
@@ -82,10 +83,10 @@ class AdminCategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\category  $category
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Country $country)
     {
         $rules = [
             'name' => 'required|max:255',
@@ -94,24 +95,24 @@ class AdminCategoryController extends Controller
 
         $validatedData = $request->validate($rules);
 
-        Category::where('id', $category->id)
+        Country::where('id', $country->id)
             ->update($validatedData);
 
-        return redirect('/dashboard/categories')->with('success', 'Post has been Updated');
+        return redirect('/dashboard/countries')->with('success', 'Countries has been Updated');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\category  $category
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category, Post $post)
+    public function destroy(Country $country)
     {
-        Post::where('category_id', $category->id)->delete();
+        Post::where('country_id', $country->id)->delete();
 
-        Category::destroy($category->id);
-        return redirect('/dashboard/categories')->with('success', 'Category has been deleted!');
+        Country::destroy($country->id);
+        return redirect('/dashboard/countries')->with('success', 'Countries has been deleted!');
     }
 
     public function checkSlug(Request $request)

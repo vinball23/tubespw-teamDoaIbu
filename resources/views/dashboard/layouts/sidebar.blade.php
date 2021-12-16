@@ -23,7 +23,15 @@
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="/dashboard/categories">
             <span data-feather="grid"></span>
-            Post Categories
+            Recipe Categories
+          </a>
+        </li>
+      </ul>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/countries*') ? 'active' : '' }}" href="/dashboard/countries">
+            <span data-feather="flag"></span>
+            Country
           </a>
         </li>
       </ul>
