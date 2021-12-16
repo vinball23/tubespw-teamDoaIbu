@@ -69,7 +69,7 @@
               @if ($post->image)
                 <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid">
               @else 
-                <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->category->name }}">
+                <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}-food" class="card-img-top" alt="{{ $post->category->name }}">
               @endif
               <div class="card-body">
                 <small class="text-muted mt-5">

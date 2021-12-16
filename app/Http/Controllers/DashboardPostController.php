@@ -92,7 +92,8 @@ class DashboardPostController extends Controller
     {
         return view('dashboard.posts.edit', [
             'post' => $post,
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'countries' => Country::all()
         ]);
     }
 
@@ -107,6 +108,7 @@ class DashboardPostController extends Controller
     {
         $rules = [
             'title' => 'required|max:255',
+            'country_id' => 'required',
             'category_id' => 'required',
             'image' => 'image|file|max:1024',
             'body' => 'required'
