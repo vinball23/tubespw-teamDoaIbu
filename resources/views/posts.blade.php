@@ -63,40 +63,37 @@
         <div class="row justify-content-center mt-5">
           @foreach ($posts as $post)
           <div class="col-md-3 mb-3 mt-2">
-            <a href="/posts/{{ $post->slug }}">
             <div class="card h-100 shadow">
-                {{-- <div class="position-absolute px-2 py-1 text-white" style="background-color: rgba(0, 0, 0, 0.4)"><a href="/posts?category={{ $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div> --}}
-                @if ($post->image)
-                  <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid">
-                @else 
-                <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}-food" class="card-img-top" alt="{{ $post->category->name }}">
-                @endif
-                <div class="card-body">
-                  <small class="text-muted mt-5">
-                   By. <a href="/posts?author={{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a>
-                  </small>
-                  <br>
-                  <small class="text-muted">
-                    From: <a href="/posts?country={{ $post->country->slug }}" class="text-decoration-none">{{ $post->country->name }}</a>
-                  </small>
-                  <h5 class="card-title">{{ $post->title }}</h5>
-                  {{-- <a href="/posts/{{ $post->slug }}" class="btn btn-success w-100">
-                    <i class="bi bi-book"></i>
-                    Recipes
-                  </a> --}}
+              {{-- <div class="position-absolute px-2 py-1 text-white" style="background-color: rgba(0, 0, 0, 0.4)"><a href="/posts?category={{ $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div> --}}
+              @if ($post->image)
+              <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid">
+              @else 
+              <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}-food" class="card-img-top" alt="{{ $post->category->name }}">
+              @endif
+              <div class="card-body">
+                <small class="text-muted mt-5">
+                  By. <a href="/posts?author={{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a>
+                </small>
+                <br>
+                <small class="text-muted">
+                  From: <a href="/posts?country={{ $post->country->slug }}" class="text-decoration-none">{{ $post->country->name }}</a>
+                </small>
+                    <a class="text-decoration-none text-dark" href="/posts/{{ $post->slug }}">
+                      <h5 class="card-title">{{ $post->title }}</h5>
+                    </a>
                 </div>
               </div>        
-            </a>
             </div>
             @endforeach
         </div>
       </div>
+      
+      @else
+      <p class="text-center fs-4">No Recipe Found</p>
+      @endif
 
-  @else
-    <p class="text-center fs-4">No Recipe Found</p>
-  @endif
-  
-  <div class="d-flex justify-content-center">
-    {{ $posts->links() }}
-  </div>
+      <div class="d-flex justify-content-center mt-5">
+        {{ $posts->links() }}
+      </div>
+      
 @endsection

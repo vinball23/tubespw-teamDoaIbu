@@ -31,5 +31,16 @@
       <button type="submit" class="btn btn-primary">Create Category</button>
     </form>
 </div>
+
+<script>
+  const name = document.querySelector('#name');
+  const slug = document.querySelector('#slug');
+
+  title.addEventListener('change', function() {
+    fetch('/dashboard/categories/checkSlug?name=' + name.value)
+      .then(response => response.json())
+      .then(data => slug.value = data.slug)
+  });
+</script>
     
 @endsection

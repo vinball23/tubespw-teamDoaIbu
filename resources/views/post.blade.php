@@ -8,7 +8,7 @@
         <h5>By.<a href="/posts?author={{ $post->author->username }}" class="text-decoration-none author">{{ $post->author->name }}</a> in <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none author">{{ $post->category->name }}</a></h4>
         <div class="mb-3">
           <img src="https://flagcdn.com/32x24/{{ $post->country->slug }}.png" srcset="https://flagcdn.com/32x24/{{ $post->country->slug }}.png 2x, https://flagcdn.com/48x36/{{ $post->country->slug }}.png 3x" width="32" height="24" alt="{{ $post->country->name }}"> 
-          <h5 class="d-inline"><a class="text-decoration-none" href="/posts?country={{ $post->country->slug }}">{{ $post->country->name }}</a> Food</h5>
+          <h5 class="d-inline"><a class="text-decoration-none" href="/posts?country={{ $post->country->slug }}">{{ $post->country->name }}</a></h5>
         </div>
         @if ($post->image)
         <div style="max-height: 350px; overflow:hidden">

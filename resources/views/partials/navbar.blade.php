@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg {{ Request::is('/') ? 'navbar-light fixed-top' : 'navbar-light bg-light sticky-top' }}">
+<nav class="navbar navbar-expand-lg {{ Request::is('/') ? 'navbar-light fixed-top' : 'navbar-light navbar-jidat sticky-top' }}">
   <div class="container">
     <a class="navbar-brand fw-bold fs-4" href="/">FoodStation</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -39,14 +39,14 @@
             <li>
               <form action="/logout" method="POST">
                 @csrf
-                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Sign Out</button>
               </form>
             </li>
           </ul>
         </li>
         @else
         <li class="nav-item">
-          <a class="nav-link {{ ($active === "login") ? 'active' : '' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          <a class="nav-link {{ ($active === "login") ? 'active' : '' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i> Sign in </a>
         </li>
         @endauth
       </ul>

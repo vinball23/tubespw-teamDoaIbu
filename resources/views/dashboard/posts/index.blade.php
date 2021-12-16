@@ -9,7 +9,7 @@
     {{ session('success') }}
   </div>
 @endif
-<div class="table-responsive col-lg-6">
+<div class="table-responsive col-lg-8">
   <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create new post</a>
   <table class="table table-striped table-sm">
     <thead>
