@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminCountryController;
 use App\Http\Controllers\CountryController;
 use App\Models\Category;
 
@@ -43,7 +44,7 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
 
-Route::get('/categories', function() {
+Route::get('/categories', function () {
     return view('categories', [
         'title' => 'Categories',
         'active' => 'categories',
@@ -58,11 +59,14 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', function() {
+Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware('auth');
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
+Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('admin');
+Route::get('/dashboard/countries/checkSlug', [AdminCountryController::class, 'checkSlug'])->middleware('admin');
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
-Route::resource('/dashboard/categories', AdminCategoryController::class)->middleware('auth', 'admin');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->middleware('admin');
+Route::resource('/dashboard/countries', AdminCountryController::class)->middleware('admin');

@@ -19,7 +19,7 @@
         @endif
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}">
-          <button class="btn btn-success" type="submit">Search</button>
+          <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
         </div>
       </form>
     </div>
@@ -34,30 +34,8 @@
     <div class="col-md-6 col-sm-12 p-3">
       <h1 class="mb-5 mb-sm-0 fw-bold">Welcome to FoodStation</h1>
       <h4 class="mt-4 col-12 mb-sm-0 mt-sm-1">Is a website that contains collection of recipes from various parts of the world. We created this website with the intention of bringing fresh and flavorful recipes right to your palm</h6>
-      {{-- <div class="btn-explore text-center">
-        <a href="#menu">
-        <button class="btn btn-banner btn-success  bi bi-compass mt-5 mb-3 w-50"> Explore Recipes</button></a>
-      </div>
-      <div class="row">
-        <div class="col text-center">
-          <i class="bi-globe"></i>
-          <p>5+ Countries</p>
-        </div>
-        <div class="col text-center">
-          <i class="bi bi-card-list"></i>
-          <p>3 Categories</p>
-        </div>
-        <div class="col text-center">
-          <i class="bi-book"></i>
-          <p>10+ Recipes</p>
-        </div>
-      </div> --}}
     </div>
   </div>
-
-    {{-- <div class="mb-4 mt-4 text-center" id="menu">
-      <h1>All the Recipes</h1>
-    </div> --}}
 
     @if ($posts->count())
         <div class="row justify-content-center mt-5">
@@ -67,7 +45,7 @@
               {{-- <div class="position-absolute px-2 py-1 text-white" style="background-color: rgba(0, 0, 0, 0.4)"><a href="/posts?category={{ $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div> --}}
               @if ($post->image)
               <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid">
-              @else 
+              @else
               <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}-food" class="card-img-top" alt="{{ $post->category->name }}">
               @endif
               <div class="card-body">

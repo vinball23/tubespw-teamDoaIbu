@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Dessert',
             'slug' => 'dessert'
         ]);
-        
+
         Country::create([
             'name' => 'India',
             'slug' => 'in'
@@ -59,6 +59,6 @@ class DatabaseSeeder extends Seeder
             'slug' => 'tr'
         ]);
 
-        Post::factory(20)->create();
+        Post::factory(30)->create();
     }
 }

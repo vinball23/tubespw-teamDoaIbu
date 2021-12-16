@@ -11,7 +11,22 @@ class Country extends Model
 
     protected $guarded = ['id'];
 
-    public function posts() {
+    public function posts()
+    {
         return $this->hasMany(Post::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 }
